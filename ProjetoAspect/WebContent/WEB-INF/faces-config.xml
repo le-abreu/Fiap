@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
+	version="1.2">
+
+	<managed-bean>
+		<managed-bean-name>handlerPedido</managed-bean-name>
+		<managed-bean-class>br.com.fiap.handler.HandlerPedido</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+
+	<managed-bean>
+		<managed-bean-name>handlerCliente</managed-bean-name>
+		<managed-bean-class>br.com.fiap.handler.HandlerCliente</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+
+	<managed-bean>
+		<managed-bean-name>handlerProduto</managed-bean-name>
+		<managed-bean-class>br.com.fiap.handler.HandlerProduto</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+
+	<converter>  
+	   <converter-id>br.com.fiap.bean.Cliente</converter-id>  
+	   <converter-class>br.com.fiap.bean.convert.ClienteConverte</converter-class>  
+	</converter>
+
+	<converter>  
+	   <converter-id>br.com.fiap.bean.Produto</converter-id>  
+	   <converter-class>br.com.fiap.bean.convert.ProdutoConverte</converter-class>  
+	</converter>
+	
+	<navigation-rule>
+		<from-view-id>/formPedido.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>salvo</from-outcome>
+			<to-view-id>/formPedido.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>pedido</from-outcome>
+			<to-view-id>/formPedido.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>produto</from-outcome>
+			<to-view-id>/formProduto.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>cliente</from-outcome>
+			<to-view-id>/formCliente.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/formProduto.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>salvo</from-outcome>
+			<to-view-id>/formProduto.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>pedido</from-outcome>
+			<to-view-id>/formPedido.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>produto</from-outcome>
+			<to-view-id>/formProduto.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>cliente</from-outcome>
+			<to-view-id>/formCliente.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/formCliente.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>salvo</from-outcome>
+			<to-view-id>/formCliente.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>pedido</from-outcome>
+			<to-view-id>/formPedido.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>produto</from-outcome>
+			<to-view-id>/formProduto.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>cliente</from-outcome>
+			<to-view-id>/formCliente.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/login.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>pedido</from-outcome>
+			<to-view-id>/formPedido.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+</faces-config>

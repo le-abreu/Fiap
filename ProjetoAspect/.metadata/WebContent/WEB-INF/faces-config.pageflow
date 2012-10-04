@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13310530356250" configfile="/ProjetoAspect/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="formPedido" x="554" y="946" id="pf13369657417410" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" outlinks="pf13370954603590 pf13370983960377 pf13370983960378 pf13370983960379" inlinks="pf13370954603590 pf13370983960377 pf133709839603711 pf133710226593815 pf13372110009750" path="/formPedido.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="pedido" x="122" y="178" id="pf13369657417412" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" path="/formPedido.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="teste" x="122" y="562" id="pf13370954603592" referenceLink="//@navigationRule.1/@fromViewId|" path="/teste.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="formProduto" x="338" y="744" id="pf13370954603745" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" outlinks="pf133709839603711 pf133709839603712 pf133709839603713 pf13372110009761" inlinks="pf13370983960378 pf133709839603712 pf133710226593816 pf13372110009761" path="/formProduto.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="formCliente" x="122" y="946" id="pf13370954603746" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" outlinks="pf133710226593815 pf133710226593816 pf133710226593817 pf13372110009772" inlinks="pf13370983960379 pf133709839603713 pf133710226593817 pf13372110009772" path="/formCliente.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="login" x="338" y="360" id="pf13372110009773" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf13372110009750" path="/login.jsp"/>
+  <links id="pf13370983960378" target="pf13370954603745" source="pf13369657417410" outcome="produto"/>
+  <links id="pf13370983960379" target="pf13370954603746" source="pf13369657417410" outcome="cliente"/>
+  <links id="pf133709839603711" target="pf13369657417410" source="pf13370954603745" outcome="pedido"/>
+  <links id="pf133709839603713" target="pf13370954603746" source="pf13370954603745" outcome="cliente"/>
+  <links id="pf133710226593815" target="pf13369657417410" source="pf13370954603746" outcome="pedido"/>
+  <links id="pf133710226593816" target="pf13370954603745" source="pf13370954603746" outcome="produto"/>
+  <links id="pf13372110009750" target="pf13369657417410" source="pf13372110009773" outcome="pedido"/>
+  <links id="pf13370954603590" target="pf13369657417410" source="pf13369657417410" outcome="salvo">
+    <bendPoints d1Height="-36" d2Height="-36"/>
+    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
+  <links id="pf13370983960377" target="pf13369657417410" source="pf13369657417410" outcome="pedido">
+    <bendPoints d1Height="-66" d2Height="-66"/>
+    <bendPoints d1Width="-94" d1Height="-66" d2Width="-94" d2Height="-66"/>
+    <bendPoints d1Width="-94" d2Width="-94"/>
+  </links>
+  <links id="pf133709839603712" target="pf13370954603745" source="pf13370954603745" outcome="produto">
+    <bendPoints d1Height="-36" d2Height="-36"/>
+    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
+  <links id="pf133710226593817" target="pf13370954603746" source="pf13370954603746" outcome="cliente">
+    <bendPoints d1Height="-36" d2Height="-36"/>
+    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
+  <links id="pf13372110009761" target="pf13370954603745" source="pf13370954603745" outcome="salvo"/>
+  <links id="pf13372110009772" target="pf13370954603746" source="pf13370954603746" outcome="salvo"/>
+</pageflow:Pageflow>
