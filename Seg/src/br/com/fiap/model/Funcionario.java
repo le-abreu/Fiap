@@ -16,6 +16,9 @@ public class Funcionario {
 	private long chapa;
 
 	@Column
+	private String cargo;
+
+	@Column
 	private String nome;
 
 	@Column
@@ -42,6 +45,14 @@ public class Funcionario {
 
 	public void setChapa(long chapa) {
 		this.chapa = chapa;
+	}
+
+	public String getCargo() {
+		return cargo;
+	}
+
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
 	}
 
 	public String getNome() {
