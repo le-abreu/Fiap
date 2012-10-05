@@ -9,14 +9,14 @@
  
    		<provider>org.hibernate.ejb.HibernatePersistence</provider> 
  
- 		<class>atendimento.bean.Tratamento</class>
+ 		<class>br.com.fiap.model.Funcionario</class>
  		
   	 	<properties>
       		<property name="hibernate.hbm2ddl.auto" value="update" />   
 			<property name="hibernate.format_sql" value="true" />   
         	<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />   
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />   
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/atendimentoMedico" />      
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/segurancaSOA" />      
             <property name="hibernate.connection.username" value="root" />                         
             <property name="hibernate.connection.password" value="" /> 
    		</properties> 
