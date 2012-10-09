@@ -20,7 +20,7 @@
 			<h:panelGrid columns="2">
 				<rich:panel style="width: 550px; height: 300px; color:red;"
 					header="Funcionario">
-					<rich:fileUpload fileUploadListener="#{handlerFuncionario.uploadArquivo}"  
+					<rich:fileUpload fileUploadListener="#{handlerLogin.uploadArquivo}"  
 		                maxFilesQuantity="1" id="upload" immediateUpload="true" acceptedTypes="txt, doc" allowFlash="false" />
 				</rich:panel>
 			</h:panelGrid>

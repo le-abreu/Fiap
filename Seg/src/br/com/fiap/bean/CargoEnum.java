@@ -1,4 +1,4 @@
-package br.com.fiap.model;
+package br.com.fiap.bean;
 
 public enum CargoEnum {
 	

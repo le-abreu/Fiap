@@ -1,24 +1,18 @@
 package br.com.fiap.handler;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintStream;
-import java.util.Calendar;
-import java.util.Scanner;
+import javax.faces.model.SelectItem;
 
-import org.richfaces.event.UploadEvent;
-import org.richfaces.model.UploadItem;
-
-import br.com.fiap.model.Funcionario;
+import br.com.fiap.bean.CargoEnum;
+import br.com.fiap.bean.Funcionario;
+import br.com.fiap.dao.FuncionarioDAO;
 
 public class HandlerFuncionario {
 
 	private Funcionario funcionario;
+	private FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 
 	{
 		funcionario =  new Funcionario();
-		funcionario.setDataAdmissao(Calendar.getInstance());
-		funcionario.setDataNascimento(Calendar.getInstance());
 	}
 	
 	public Funcionario getFuncionario() {
@@ -30,27 +24,18 @@ public class HandlerFuncionario {
 	}
 
 	public String salvar() {
+		funcionarioDAO.persist(funcionario);
+		funcionario =  new Funcionario();
 		return "sucesso";
 	}
-
-	public void uploadArquivo(UploadEvent event) throws IOException {
-        UploadItem upload = event.getUploadItem();  
-		if (upload.isTempFile()) {  
-			Scanner scanner = new Scanner(upload.getFile());
-			File file = new File("l:\\"+ funcionario.getNome() +"\\"+ funcionario.getSobrenome()+"\\");
-			if (file.mkdir()) {
-				file = new File("c:\\teste\\teste.txt");
-				if (file.createNewFile()) {
-		            PrintStream printStream = new PrintStream(file);           
-		
-		            while (scanner.hasNextLine()) {  
-		            	String a= scanner.nextLine();
-		            	System.out.println(a);
-		            	printStream.println(a);
-		            }  
-		            printStream.close();
-				};
-			}  
+	
+	public SelectItem[] getCargos() {
+		SelectItem[] items = new SelectItem[CargoEnum.values().length];
+		int i = 0;
+		for (CargoEnum c : CargoEnum.values()) {
+			items[i++] = new SelectItem(c, c.getDescricao());
 		}
-    }  
+		return items;
+	}
+
 }

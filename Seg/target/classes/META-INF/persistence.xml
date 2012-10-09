@@ -4,8 +4,8 @@
 	
    		<provider>org.hibernate.ejb.HibernatePersistence</provider> 
  
- 		<class>br.com.fiap.model.Funcionario</class>
- 		<class>br.com.fiap.model.Arquivo</class>
+ 		<class>br.com.fiap.bean.Funcionario</class>
+ 		<class>br.com.fiap.bean.Arquivo</class>
  		
   	 	<properties>
       		<property name="hibernate.hbm2ddl.auto" value="update" />   

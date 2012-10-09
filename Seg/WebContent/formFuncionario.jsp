@@ -26,8 +26,11 @@
 							<h:outputLabel id="chapa" value="Chapa:" style="aling: right;" />
 							<h:inputText value="#{handlerFuncionario.funcionario.chapa}" />
 							
-							<h:outputLabel value=" " />
-							<h:outputLabel value=" " />
+							<h:outputLabel value="Cargo:" id="cargo"/>
+							<h:selectOneMenu id="tipoCliente" value="#{handlerFuncionario.funcionario.cargo}" onchange="submit()">
+								<f:selectItem itemLabel="selecione..." />
+								<f:selectItems value="#{handlerFuncionario.cargos}" />
+							</h:selectOneMenu>
 
 							<h:outputLabel id="nome" value="Nome:" />
 							<h:inputText value="#{handlerFuncionario.funcionario.nome}" />
@@ -36,12 +39,12 @@
 							<h:inputText value="#{handlerFuncionario.funcionario.sobrenome}" />
 							
 							<h:outputLabel id="dataNascimento" value="Data Nascimento:" />
-						    <rich:calendar datePattern="dd/MM/yyyy" value="#{handlerFuncionario.funcionario.dataNascimento.time}" required="true" requiredMessage="Por favor informe a data!!!">
+						    <rich:calendar datePattern="dd/MM/yyyy" value="#{handlerFuncionario.funcionario.dataNascimento}">
 					            <f:convertDateTime type="date"  pattern="dd/MM/yyyy" />   
 					         </rich:calendar>  
 							
 							<h:outputLabel id="dataAdmissao" value="Data Admissão:" />
-						    <rich:calendar datePattern="dd/MM/yyyy" value="#{handlerFuncionario.funcionario.dataAdmissao.time}" required="true" requiredMessage="Por favor informe a data!!!">
+						    <rich:calendar datePattern="dd/MM/yyyy" value="#{handlerFuncionario.funcionario.dataAdmissao}" >
 					            <f:convertDateTime type="date"  pattern="dd/MM/yyyy" />   
 					         </rich:calendar>  
 							

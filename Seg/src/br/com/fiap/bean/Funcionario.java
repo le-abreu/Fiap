@@ -1,6 +1,6 @@
-package br.com.fiap.model;
+package br.com.fiap.bean;
 
-import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -32,13 +32,13 @@ public class Funcionario {
 	private String sobrenome;
 
 	@Temporal(TemporalType.DATE)
-	private Calendar dataNascimento;
+	private Date dataNascimento;
 	
 	@Temporal(TemporalType.DATE)
-	private Calendar dataAdmissao;
+	private Date dataAdmissao;
 	
 	@Temporal(TemporalType.DATE)
-	private Calendar dataUltimaPromocao;
+	private Date dataUltimaPromocao;
 	
 	@Column
 	private String usuario;
@@ -80,28 +80,28 @@ public class Funcionario {
 	public void setSobrenome(String sobrenome) {
 		this.sobrenome = sobrenome;
 	}
-	
-	public Calendar getDataNascimento() {
+
+	public Date getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(Calendar dataNascimento) {
+	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 
-	public Calendar getDataAdmissao() {
+	public Date getDataAdmissao() {
 		return dataAdmissao;
 	}
 
-	public void setDataAdmissao(Calendar dataAdmissao) {
+	public void setDataAdmissao(Date dataAdmissao) {
 		this.dataAdmissao = dataAdmissao;
 	}
 
-	public Calendar getDataUltimaPromocao() {
+	public Date getDataUltimaPromocao() {
 		return dataUltimaPromocao;
 	}
 
-	public void setDataUltimaPromocao(Calendar dataUltimaPromocao) {
+	public void setDataUltimaPromocao(Date dataUltimaPromocao) {
 		this.dataUltimaPromocao = dataUltimaPromocao;
 	}
 
