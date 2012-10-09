@@ -12,7 +12,7 @@ public class JPAUtil {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("SegJPA");
 		em =  emf.createEntityManager();
 	}
-
+	//Teste
 	public static EntityManager getEntityManager(){
 		return  em;
 	}
