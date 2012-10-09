@@ -1,12 +1,18 @@
 package br.com.fiap.model;
 
 import java.util.Calendar;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Funcionario {
@@ -15,8 +21,9 @@ public class Funcionario {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long chapa;
 
+	@Enumerated(EnumType.STRING)
 	@Column
-	private String cargo;
+	private CargoEnum cargo;
 
 	@Column
 	private String nome;
@@ -24,13 +31,13 @@ public class Funcionario {
 	@Column
 	private String sobrenome;
 
-	@Column
+	@Temporal(TemporalType.DATE)
 	private Calendar dataNascimento;
 	
-	@Column
+	@Temporal(TemporalType.DATE)
 	private Calendar dataAdmissao;
 	
-	@Column
+	@Temporal(TemporalType.DATE)
 	private Calendar dataUltimaPromocao;
 	
 	@Column
@@ -38,6 +45,9 @@ public class Funcionario {
 	
 	@Column
 	private String chavePublica;
+
+	@OneToMany
+	private List<Arquivo> listaArquivos;
 
 	public long getChapa() {
 		return chapa;
@@ -47,11 +57,11 @@ public class Funcionario {
 		this.chapa = chapa;
 	}
 
-	public String getCargo() {
+	public CargoEnum getCargo() {
 		return cargo;
 	}
 
-	public void setCargo(String cargo) {
+	public void setCargo(CargoEnum cargo) {
 		this.cargo = cargo;
 	}
 
@@ -70,7 +80,7 @@ public class Funcionario {
 	public void setSobrenome(String sobrenome) {
 		this.sobrenome = sobrenome;
 	}
-
+	
 	public Calendar getDataNascimento() {
 		return dataNascimento;
 	}
@@ -110,6 +120,13 @@ public class Funcionario {
 	public void setChavePublica(String chavePublica) {
 		this.chavePublica = chavePublica;
 	}
-	
+
+	public List<Arquivo> getListaArquivos() {
+		return listaArquivos;
+	}
+
+	public void setListaArquivos(List<Arquivo> listaArquivos) {
+		this.listaArquivos = listaArquivos;
+	}
 }
  
