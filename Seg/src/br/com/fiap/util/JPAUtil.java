@@ -13,7 +13,6 @@ public class JPAUtil {
 		em =  emf.createEntityManager();
 	}
 
-	//Teste Commit 
 	public static EntityManager getEntityManager(){
 		return  em;
 	}
