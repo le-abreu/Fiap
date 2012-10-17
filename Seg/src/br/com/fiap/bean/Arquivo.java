@@ -2,6 +2,7 @@ package br.com.fiap.bean;
 
 import java.util.Calendar;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +23,7 @@ public class Arquivo{
 	@Column
 	private String nomeArquivo;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Funcionario funcionario;
 
 	@Column
@@ -30,6 +31,10 @@ public class Arquivo{
 	
 	@Column
 	private Calendar dataInclusao;
+
+	@Column
+	private String assinaturaArquivo;
+
 
 	public long getId() {
 		return id;
@@ -77,6 +82,14 @@ public class Arquivo{
 
 	public void setDataInclusao(Calendar dataInclusao) {
 		this.dataInclusao = dataInclusao;
+	}
+
+	public String getAssinaturaArquivo() {
+		return assinaturaArquivo;
+	}
+
+	public void setAssinaturaArquivo(String assinaturaArquivo) {
+		this.assinaturaArquivo = assinaturaArquivo;
 	}
 	
 }

@@ -14,7 +14,7 @@ public class FuncionarioDAO extends DAO<Funcionario>{
 	public Funcionario getLoginFuncionario(String usuario, String senha) {
 		String nome = Funcionario.class.getName();
 		Query query = JPAUtil.getEntityManager().createQuery("select t from " +
-					nome.replace("br.com.fiap.model.", "") + 
+					nome.replace("br.com.fiap.bean.", "") + 
 					" t where usuario = :usuario and senha = :senha");
 		query.setParameter("usuario", usuario);
 		query.setParameter("senha", senha);

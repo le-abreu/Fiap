@@ -21,7 +21,7 @@ public class DAO<T> {
 	@SuppressWarnings("unchecked")
 	public List<T> lista() {
 		String nome = this.persistentClass.getName();
-		String sql = "SELECT t FROM  " + nome.replace("br.com.fiap.model.", "") + " t";
+		String sql = "SELECT t FROM  " + nome.replace("br.com.fiap.bean.", "") + " t";
 		Query q = getEm().createQuery(sql);
 		List<T> lista = q.getResultList();
 		return lista;

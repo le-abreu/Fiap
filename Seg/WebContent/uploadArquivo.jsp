@@ -17,11 +17,38 @@
 					</rich:dropDownMenu>
 				</rich:toolBar>
 			</h:form>
-			<h:panelGrid columns="2">
-				<rich:panel style="width: 550px; height: 300px; color:red;"
-					header="Funcionario">
-					<rich:fileUpload fileUploadListener="#{handlerLogin.uploadArquivo}"  
-		                maxFilesQuantity="1" id="upload" immediateUpload="true" acceptedTypes="txt, doc" allowFlash="false" />
+			<h:panelGrid columns="1" >
+				<rich:panel header="Upload" style="width: 550px; height: 100px;" >
+					<h:panelGroup>
+						<rich:fileUpload fileUploadListener="#{handlerLogin.uploadArquivo}" listHeight="20px" listWidth="520px"
+		                maxFilesQuantity="10000" id="upload" immediateUpload="true" acceptedTypes="txt, doc" allowFlash="false" />
+					</h:panelGroup>
+				</rich:panel>
+				<rich:panel header="Arquivos" style="width: 550px; height: 150px;" >
+					<h:form>
+						<rich:dataTable value="#{handlerLogin.arquivos}" var="a"
+							border="2" id="tabela" width="530px;" rows="3">
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="#" />
+								</f:facet>
+								<h:outputText value="#{a.possuiAssinaturaDigital}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="Funcionario" />
+								</f:facet>
+								<h:outputText value="#{a.funcionario.nome} #{a.funcionario.sobrenome}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="Arquivo" />
+								</f:facet>
+								<a href="<h:outputText value='#{a.caminhoArquivo}#{a.nomeArquivo}' />"  target="_blank"><h:outputText value='#{a.nomeArquivo}' /></a>
+							</h:column>
+						</rich:dataTable>
+						<rich:datascroller for="tabela" align="center"/>
+					</h:form>
 				</rich:panel>
 			</h:panelGrid>
 		</h:panelGrid>

@@ -1,10 +1,17 @@
 package br.com.fiap.bean;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -48,13 +55,7 @@ public class Funcionario {
 	@Column
 	private String senha;
 	
-	@Column
-	private PublicKey chavePublica;
-
-	@Column
-	private PrivateKey chavePrivate;
-
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<Arquivo> listaArquivos;
 
 	public long getChapa() {
@@ -130,19 +131,49 @@ public class Funcionario {
 	}
 
 	public PublicKey getChavePublica() {
-		return chavePublica;
+		try {
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("c:\\seguranca\\chavePublica\\"+this.getChapa()+".txt"));
+			return (PublicKey) ois.readObject();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public void setChavePublica(PublicKey publicKey) {
-		this.chavePublica = publicKey;
+		try {
+			File file = new File("c:\\seguranca\\chavePublica\\"+this.getChapa()+".txt");
+			FileOutputStream fos = new FileOutputStream(file);
+			ObjectOutputStream serializador = new ObjectOutputStream(fos);
+			serializador.writeObject(publicKey);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public PrivateKey getChavePrivate() {
-		return chavePrivate;
+		try {
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("c:\\seguranca\\chavePrivada\\"+this.getChapa()+".txt"));
+			return (PrivateKey) ois.readObject();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public void setChavePrivate(PrivateKey privateKey) {
-		this.chavePrivate = privateKey;
+		try {
+			File file = new File("c:\\seguranca\\chavePrivada\\"+this.getChapa()+".txt");
+			FileOutputStream fos = new FileOutputStream(file);
+			ObjectOutputStream serializador = new ObjectOutputStream(fos);
+			serializador.writeObject(privateKey);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public List<Arquivo> getListaArquivos() {

@@ -12,7 +12,7 @@
 								<h:outputLabel value="Usuario:"/>
 								<h:inputText id="usuario" value="#{handlerLogin.funcionario.usuario}"/>
 								<h:outputLabel value="Chave Acesso:"/>
-								<h:inputText id="chaveAcessoa" value="#{handlerLogin.funcionario.chavePublica}"/>
+								<h:inputText id="chaveAcessoa" value="#{handlerLogin.funcionario.senha}"/>
 							</h:panelGrid>							
 								<a4j:commandButton image="img/imagem_cadeado.jpg" action="#{handlerLogin.login}" />
 						</h:panelGrid>
