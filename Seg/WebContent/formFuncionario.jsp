@@ -52,7 +52,7 @@
 							<h:inputText value="#{handlerFuncionario.funcionario.usuario}" />
 							
 							<h:outputLabel id="chavePublica" value="Chave Publica:" />
-							<h:inputText value="#{handlerFuncionario.funcionario.chavePublica}" />
+							<h:inputText value="#{handlerFuncionario.funcionario.senha}" />
 							
 							<a4j:commandButton value="Salvar" action="#{handlerFuncionario.salvar}" />
 						</h:panelGrid>

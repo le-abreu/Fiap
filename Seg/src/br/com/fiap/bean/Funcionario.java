@@ -1,5 +1,7 @@
 package br.com.fiap.bean;
 
+import java.security.PrivateKey;
+import java.security.PublicKey;
 import java.util.Date;
 import java.util.List;
 
@@ -42,9 +44,15 @@ public class Funcionario {
 	
 	@Column
 	private String usuario;
+
+	@Column
+	private String senha;
 	
 	@Column
-	private String chavePublica;
+	private PublicKey chavePublica;
+
+	@Column
+	private PrivateKey chavePrivate;
 
 	@OneToMany
 	private List<Arquivo> listaArquivos;
@@ -113,12 +121,28 @@ public class Funcionario {
 		this.usuario = usuario;
 	}
 
-	public String getChavePublica() {
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public PublicKey getChavePublica() {
 		return chavePublica;
 	}
 
-	public void setChavePublica(String chavePublica) {
-		this.chavePublica = chavePublica;
+	public void setChavePublica(PublicKey publicKey) {
+		this.chavePublica = publicKey;
+	}
+
+	public PrivateKey getChavePrivate() {
+		return chavePrivate;
+	}
+
+	public void setChavePrivate(PrivateKey privateKey) {
+		this.chavePrivate = privateKey;
 	}
 
 	public List<Arquivo> getListaArquivos() {
@@ -128,5 +152,6 @@ public class Funcionario {
 	public void setListaArquivos(List<Arquivo> listaArquivos) {
 		this.listaArquivos = listaArquivos;
 	}
+
 }
  

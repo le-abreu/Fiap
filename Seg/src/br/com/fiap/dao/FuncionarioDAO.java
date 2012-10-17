@@ -11,13 +11,13 @@ public class FuncionarioDAO extends DAO<Funcionario>{
 		super(JPAUtil.getEntityManager(), Funcionario.class);
 	}
 
-	public Funcionario getLoginFuncionario(String usuario, String chaveAcessoa) {
+	public Funcionario getLoginFuncionario(String usuario, String senha) {
 		String nome = Funcionario.class.getName();
 		Query query = JPAUtil.getEntityManager().createQuery("select t from " +
 					nome.replace("br.com.fiap.model.", "") + 
-					" t where usuario = :usuario and chavePublica = :chavePublica");
+					" t where usuario = :usuario and senha = :senha");
 		query.setParameter("usuario", usuario);
-		query.setParameter("chavePublica", chaveAcessoa);
+		query.setParameter("senha", senha);
 		Funcionario funcionario = (Funcionario) query.getResultList().get(0);
 		return funcionario;
 	}
