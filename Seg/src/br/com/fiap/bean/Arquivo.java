@@ -1,9 +1,6 @@
 package br.com.fiap.bean;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Calendar;
-import java.util.Scanner;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -15,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import br.com.fiap.util.AssinaturaDigital;
+import br.com.fiap.util.ControllerArquivo;
 
 @Entity
 public class Arquivo{
@@ -34,9 +32,6 @@ public class Arquivo{
 
 	@Column
 	private Calendar dataInclusao;
-
-	@Column
-	private String assinaturaArquivo;
 
 
 	public long getId() {
@@ -72,21 +67,9 @@ public class Arquivo{
 	}
 
 	public boolean isPossuiAssinaturaDigital() {
-		try {
-			File file =  new File(this.caminhoArquivo+this.nomeArquivo);
-			Scanner scanner = new Scanner(file);
-			
-			StringBuffer stringBuffer = new StringBuffer();
-			while (scanner.hasNextLine()) { 
-				String a = scanner.nextLine();
-				stringBuffer.append(a);
-			}
-			return AssinaturaDigital.isAssinadoDigitalmente(stringBuffer.toString(),this.getAssinaturaArquivo(), funcionario.getChavePublica());
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-			return false;
-		}
-		
+		String arquivo = ControllerArquivo.leituraArquivo(caminhoArquivo, nomeArquivo);
+		String sign = ControllerArquivo.retornaSign(caminhoArquivo, nomeArquivo);
+		return AssinaturaDigital.isAssinadoDigitalmente(arquivo ,sign, funcionario.getChavePublica());
 	}
 
 	public Calendar getDataInclusao() {
@@ -97,12 +80,7 @@ public class Arquivo{
 		this.dataInclusao = dataInclusao;
 	}
 
-	public String getAssinaturaArquivo() {
-		return assinaturaArquivo;
-	}
-
-	public void setAssinaturaArquivo(String assinaturaArquivo) {
-		this.assinaturaArquivo = assinaturaArquivo;
-	}
-	
 }
+
+//scanner = new Scanner(new InputStreamReader(new FileInputStream(file), "UTF8"));
+//PrintWriter print = new PrintWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF8")); 

@@ -11,8 +11,7 @@ import br.com.fiap.bean.Arquivo;
 import br.com.fiap.bean.Funcionario;
 import br.com.fiap.dao.ArquivoDAO;
 import br.com.fiap.dao.FuncionarioDAO;
-import br.com.fiap.util.AssinaturaDigital;
-import br.com.fiap.util.UploadArquivo;
+import br.com.fiap.util.ControllerArquivo;
 
 public class HandlerLogin {
 
@@ -41,9 +40,8 @@ public class HandlerLogin {
 
 			String path = "c:\\seguranca\\" + funcionario.getNome() + "\\"+ funcionario.getSobrenome() + "\\";
 			String nomeArquivo = upload.getFileName();
-			String string = UploadArquivo.guardarArquivo(upload.getFile(), path, nomeArquivo);
+			ControllerArquivo.guardarArquivo(upload.getFile(), path, nomeArquivo, funcionario.getChavePrivate());
 			
-			this.arquivo.setAssinaturaArquivo(AssinaturaDigital.assinarDigitalmente(string ,funcionario.getChavePrivate()));
 			this.arquivo.setCaminhoArquivo(path);
 			this.arquivo.setDataInclusao(Calendar.getInstance());
 			this.arquivo.setFuncionario(funcionario);

@@ -1,11 +1,5 @@
 package br.com.fiap.bean;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.NoSuchAlgorithmException;
@@ -26,6 +20,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import br.com.fiap.util.ControllerArquivo;
 
 @Entity
 public class Funcionario {
@@ -72,9 +68,6 @@ public class Funcionario {
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Arquivo> listaArquivos;
-
-	private transient ObjectInputStream ois;
-	private transient ObjectOutputStream serializador;
 
 	public long getChapa() {
 		return chapa;
@@ -149,49 +142,28 @@ public class Funcionario {
 	}
 
 	public PublicKey getChavePublica() {
-		try {
-			ois = new ObjectInputStream(new FileInputStream("c:\\seguranca\\chavePublica\\"+this.getChapa()+".txt"));
-			return (PublicKey) ois.readObject();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		return null;
+		String path = "c:\\seguranca\\chavePublica\\";
+		String nomeArquvio = this.getChapa()+".txt";
+		return (PublicKey) ControllerArquivo.getObjetoSerializavel(path, nomeArquvio);
 	}
 
 	public void setChavePublica(PublicKey publicKey) {
-		try {
-			File file = new File("c:\\seguranca\\chavePublica\\"+this.getChapa()+".txt");
-			FileOutputStream fos = new FileOutputStream(file);
-			serializador = new ObjectOutputStream(fos);
-			serializador.writeObject(publicKey);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		String path = "c:\\seguranca\\chavePublica\\";
+		String nomeArquvio = this.getChapa()+".txt";
+		ControllerArquivo.gravarObjetoSerializavel(path, nomeArquvio, publicKey);
 	}
 
 	public PrivateKey getChavePrivate() {
-		try {
-			ois = new ObjectInputStream(new FileInputStream("c:\\seguranca\\chavePrivada\\"+this.getChapa()+".txt"));
-			return (PrivateKey) ois.readObject();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		return null;
+		String path = "c:\\seguranca\\chavePrivada\\";
+		String nomeArquvio = this.getChapa()+".txt";
+		return (PrivateKey) ControllerArquivo.getObjetoSerializavel(path, nomeArquvio);
 	}
 
 	public void setChavePrivate(PrivateKey privateKey) {
-		try {
-			File file = new File("c:\\seguranca\\chavePrivada\\"+this.getChapa()+".txt");
-			FileOutputStream fos = new FileOutputStream(file);
-			serializador = new ObjectOutputStream(fos);
-			serializador.writeObject(privateKey);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		String path = "c:\\seguranca\\chavePrivada\\";
+		String nomeArquvio = this.getChapa()+".txt";
+		ControllerArquivo.gravarObjetoSerializavel(path, nomeArquvio, privateKey);
+			
 	}
 
 	public List<Arquivo> getListaArquivos() {
