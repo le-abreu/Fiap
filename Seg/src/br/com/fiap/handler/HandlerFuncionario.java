@@ -1,9 +1,5 @@
 package br.com.fiap.handler;
 
-import java.security.KeyPair;
-import java.security.KeyPairGenerator;
-import java.security.NoSuchAlgorithmException;
-
 import javax.faces.model.SelectItem;
 
 import br.com.fiap.bean.CargoEnum;
@@ -28,17 +24,9 @@ public class HandlerFuncionario {
 	}
 
 	public String salvar() {
-		try {
-			KeyPair keyPair = KeyPairGenerator.getInstance("DSA").generateKeyPair();
-			funcionario.setChavePublica(keyPair.getPublic());
-	        funcionario.setChavePrivate(keyPair.getPrivate()); 
 	        funcionarioDAO.persist(funcionario);
 	        funcionario =  new Funcionario();
 	        return "sucesso";
-		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
-			return "false";
-		}
 	}
 	
 	public SelectItem[] getCargos() {
@@ -50,16 +38,4 @@ public class HandlerFuncionario {
 		return items;
 	}
 
-    public static KeyPair gerarChaves() {
-        try {
-            KeyPairGenerator kpg = KeyPairGenerator.getInstance("DAS");
-            kpg.initialize(1024);
-            KeyPair kp = kpg.generateKeyPair();
-            return kp;
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-
-        return null;
-    }
 }

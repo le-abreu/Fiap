@@ -6,6 +6,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
+import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.Date;
@@ -16,6 +19,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,7 +29,18 @@ import javax.persistence.TemporalType;
 
 @Entity
 public class Funcionario {
-	
+
+	{
+		KeyPair keyPair;
+		try {
+			keyPair = KeyPairGenerator.getInstance("DSA").generateKeyPair();
+			this.setChavePublica(keyPair.getPublic());
+			this.setChavePrivate(keyPair.getPrivate()); 
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long chapa;
@@ -55,8 +70,11 @@ public class Funcionario {
 	@Column
 	private String senha;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Arquivo> listaArquivos;
+
+	private transient ObjectInputStream ois;
+	private transient ObjectOutputStream serializador;
 
 	public long getChapa() {
 		return chapa;
@@ -132,7 +150,7 @@ public class Funcionario {
 
 	public PublicKey getChavePublica() {
 		try {
-			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("c:\\seguranca\\chavePublica\\"+this.getChapa()+".txt"));
+			ois = new ObjectInputStream(new FileInputStream("c:\\seguranca\\chavePublica\\"+this.getChapa()+".txt"));
 			return (PublicKey) ois.readObject();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -146,7 +164,7 @@ public class Funcionario {
 		try {
 			File file = new File("c:\\seguranca\\chavePublica\\"+this.getChapa()+".txt");
 			FileOutputStream fos = new FileOutputStream(file);
-			ObjectOutputStream serializador = new ObjectOutputStream(fos);
+			serializador = new ObjectOutputStream(fos);
 			serializador.writeObject(publicKey);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -155,7 +173,7 @@ public class Funcionario {
 
 	public PrivateKey getChavePrivate() {
 		try {
-			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("c:\\seguranca\\chavePrivada\\"+this.getChapa()+".txt"));
+			ois = new ObjectInputStream(new FileInputStream("c:\\seguranca\\chavePrivada\\"+this.getChapa()+".txt"));
 			return (PrivateKey) ois.readObject();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -169,7 +187,7 @@ public class Funcionario {
 		try {
 			File file = new File("c:\\seguranca\\chavePrivada\\"+this.getChapa()+".txt");
 			FileOutputStream fos = new FileOutputStream(file);
-			ObjectOutputStream serializador = new ObjectOutputStream(fos);
+			serializador = new ObjectOutputStream(fos);
 			serializador.writeObject(privateKey);
 		} catch (IOException e) {
 			e.printStackTrace();
