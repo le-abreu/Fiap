@@ -17,13 +17,10 @@
 	</managed-bean>
 	
 	<navigation-rule>
+		<display-name>formFuncionario</display-name>
 		<from-view-id>/formFuncionario.jsp</from-view-id>
 		<navigation-case>
-			<from-outcome>salvo</from-outcome>
-			<to-view-id>/formFuncionario.jsp</to-view-id>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>funcionario</from-outcome>
+			<from-outcome>sucesso</from-outcome>
 			<to-view-id>/formFuncionario.jsp</to-view-id>
 		</navigation-case>
 		<navigation-case>
@@ -39,10 +36,11 @@
 			<to-view-id>/formFuncionario.jsp</to-view-id>
 		</navigation-case>
 		<navigation-case>
-			<from-outcome>arquivo</from-outcome>
+			<from-outcome>sucesso</from-outcome>
 			<to-view-id>/uploadArquivo.jsp</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	
 	<navigation-rule>
 		<display-name>login</display-name>
 		<from-view-id>/login.jsp</from-view-id>
@@ -53,6 +51,23 @@
 		<navigation-case>
 			<from-outcome>falha</from-outcome>
 			<to-view-id>/login.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>formPromoverFuncionario</display-name>
+		<from-view-id>/formPromoverFuncionario.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>arquivo</from-outcome>
+			<to-view-id>/uploadArquivo.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>funcionario</from-outcome>
+			<to-view-id>/formFuncionario.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>sucesso</from-outcome>
+			<to-view-id>/formPromoverFuncionario.jsp</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 

@@ -1,5 +1,9 @@
 package br.com.fiap.handler;
 
+import java.util.List;
+
+import javax.faces.component.UIParameter;
+import javax.faces.event.ActionEvent;
 import javax.faces.model.SelectItem;
 
 import br.com.fiap.bean.CargoEnum;
@@ -37,5 +41,21 @@ public class HandlerFuncionario {
 		}
 		return items;
 	}
+
+	public List<Funcionario> getListFuncionarios() {
+		return funcionarioDAO.listaCargoFuncionario();
+	}
+
+	public void promoverFuncionario(ActionEvent event) {
+		UIParameter val = (UIParameter) event.getComponent().findComponent("chapa");
+		int id = Integer.parseInt(val.getValue().toString());
+		for(Funcionario funcionario : funcionarioDAO.listaCargoFuncionario()){
+			if(funcionario.getChapa() == id ){
+				funcionario.setCargo(CargoEnum.GERENTE);
+				funcionarioDAO.update(funcionario);
+			}
+		}
+	}
+
 
 }

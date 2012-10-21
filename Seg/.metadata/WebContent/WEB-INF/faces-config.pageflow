@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13494482496270" configfile="/Seg/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="formPedido" id="pf13497300236070" referenceLink="//@navigationRule.1/@navigationCase.1/@toViewId|" outlinks="pf13497300596598 pf13497300596599 pf134973005965910" inlinks="pf13497300596598 pf13497300596599 pf134973007121813" path="/formFuncionario.jsp"/>
-  <nodes xsi:type="pageflow:PFPage" name="uploadArquivo" id="pf134973005965911" referenceLink="//@navigationRule.1/@navigationCase.2/@toViewId|" outlinks="pf134973007121813 pf134973007121814" inlinks="pf134973005965910 pf134973007121814" path="/uploadArquivo.jsp"/>
-  <links id="pf13497300596598" target="pf13497300236070" source="pf13497300236070" outcome="salvo"/>
-  <links id="pf13497300596599" target="pf13497300236070" source="pf13497300236070" outcome="funcionario"/>
+  <nodes xsi:type="pageflow:PFPage" name="formFuncionario" x="708" y="168" id="pf13497300236070" referenceLink="//@navigationRule.3/@navigationCase.2/@toViewId|" outlinks="pf134973005965910 pf13508402534854" inlinks="pf134973007121813 pf13508401978400 pf13508402534854 pf13508403763827" path="/formFuncionario.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="uploadArquivo" x="122" y="178" id="pf134973005965911" referenceLink="//@navigationRule.1/@navigationCase.1/@toViewId|" outlinks="pf134973007121813 pf134973007121814" inlinks="pf134973005965910 pf134973007121814 pf13508403331546" path="/uploadArquivo.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="login" x="644" y="328" id="pf13508401978401" referenceLink="//@navigationRule.2/@navigationCase.1/@toViewId|" outlinks="pf13508401978400 pf13508401978402" inlinks="pf13508401978402" path="/login.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="formPromoverFuncionario" x="408" y="264" width="61" height="97" id="pf13508401978403" referenceLink="//@navigationRule.3/@navigationCase.2/@toViewId|" outlinks="pf13508403331546 pf13508403763827 pf13508403923258" inlinks="pf13508403923258" path="/formPromoverFuncionario.jsp"/>
   <links id="pf134973005965910" target="pf134973005965911" source="pf13497300236070" outcome="arquivo"/>
   <links id="pf134973007121813" target="pf13497300236070" source="pf134973005965911" outcome="funcionario"/>
-  <links id="pf134973007121814" target="pf134973005965911" source="pf134973005965911" outcome="arquivo"/>
+  <links id="pf13508401978400" target="pf13497300236070" source="pf13508401978401" outcome="sucesso"/>
+  <links id="pf134973007121814" target="pf134973005965911" source="pf134973005965911" outcome="sucesso">
+    <bendPoints d1Height="-36" d2Height="-36"/>
+    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
+  <links id="pf13508401978402" target="pf13508401978401" source="pf13508401978401" outcome="falha">
+    <bendPoints d1Height="-36" d2Height="-36"/>
+    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
+  <links id="pf13508402534854" target="pf13497300236070" source="pf13497300236070" outcome="sucesso"/>
+  <links id="pf13508403331546" target="pf134973005965911" source="pf13508401978403" outcome="arquivo"/>
+  <links id="pf13508403763827" target="pf13497300236070" source="pf13508401978403" outcome="funcionario"/>
+  <links id="pf13508403923258" target="pf13508401978403" source="pf13508401978403" outcome="sucesso"/>
 </pageflow:Pageflow>

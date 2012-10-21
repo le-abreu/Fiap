@@ -1,7 +1,10 @@
 package br.com.fiap.dao;
 
+import java.util.List;
+
 import javax.persistence.Query;
 
+import br.com.fiap.bean.CargoEnum;
 import br.com.fiap.bean.Funcionario;
 import br.com.fiap.util.JPAUtil;
 
@@ -21,5 +24,14 @@ public class FuncionarioDAO extends DAO<Funcionario>{
 		Funcionario funcionario = (Funcionario) query.getResultList().get(0);
 		return funcionario;
 	}
-	
+
+	public List<Funcionario> listaCargoFuncionario() {
+		String nome = Funcionario.class.getName();
+		String sql = "SELECT f FROM  " + nome.replace("br.com.fiap.bean.", "") + " f" +
+				" where cargo = :cargo";
+		Query q = getEm().createQuery(sql).setParameter("cargo", CargoEnum.FUNCIONARIO);
+		List<Funcionario> lista = q.getResultList();
+		return lista;
+	}
+
 }
