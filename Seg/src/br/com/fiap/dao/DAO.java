@@ -28,7 +28,7 @@ public class DAO<T> {
 	}
 
 	@SuppressWarnings("unchecked")
-	public T find(int id) {
+	public T find(long id) {
 		return (T) getEm().find(persistentClass, id);
 	}
 

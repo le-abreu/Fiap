@@ -6,7 +6,9 @@ import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -65,9 +67,30 @@ public class Funcionario {
 
 	@Column
 	private String senha;
+
+	@Column
+	private boolean isDesligado;
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Arquivo> listaArquivos;
+
+	public Funcionario() {
+	}
+	
+	public Funcionario(CargoEnum cargo, String nome, String sobrenome,
+			Date dataNascimento, Date dataAdmissao, Date dataUltimaPromocao,
+			String usuario, String senha, boolean isDesligado) {
+		super();
+		this.cargo = cargo;
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.dataNascimento = dataNascimento;
+		this.dataAdmissao = dataAdmissao;
+		this.dataUltimaPromocao = dataUltimaPromocao;
+		this.usuario = usuario;
+		this.senha = senha;
+		this.isDesligado = isDesligado;
+	}
 
 	public long getChapa() {
 		return chapa;
@@ -174,5 +197,26 @@ public class Funcionario {
 		this.listaArquivos = listaArquivos;
 	}
 
+	public boolean isDesligado() {
+		return isDesligado;
+	}
+
+	public void setDesligado(boolean isDesligado) {
+		this.isDesligado = isDesligado;
+	}
+	
+	public Map<String,String> mapFuncionario(){
+		Map<String, String> mapResult = new HashMap<String, String>();
+		
+		mapResult.put("nome", this.nome);
+		mapResult.put("cargo", this.cargo.getDescricao());
+		mapResult.put("sobrenome", this.sobrenome);
+		mapResult.put("senha", this.senha);
+		mapResult.put("nomeUsuario", this.usuario);
+		mapResult.put("chapa", ""+this.chapa);
+		mapResult.put("dataAdmissao", ""+this.dataAdmissao);
+		mapResult.put("dataNascimento", ""+this.dataNascimento);
+		return mapResult; 
+	}
 }
  

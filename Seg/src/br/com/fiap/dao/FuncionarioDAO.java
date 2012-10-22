@@ -21,17 +21,22 @@ public class FuncionarioDAO extends DAO<Funcionario>{
 					" t where usuario = :usuario and senha = :senha");
 		query.setParameter("usuario", usuario);
 		query.setParameter("senha", senha);
+		
+		if (query.getResultList().size() < 1) {
+			return null;
+		}
+		
 		Funcionario funcionario = (Funcionario) query.getResultList().get(0);
 		return funcionario;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Funcionario> listaCargoFuncionario() {
 		String nome = Funcionario.class.getName();
 		String sql = "SELECT f FROM  " + nome.replace("br.com.fiap.bean.", "") + " f" +
 				" where cargo = :cargo";
 		Query q = getEm().createQuery(sql).setParameter("cargo", CargoEnum.FUNCIONARIO);
-		List<Funcionario> lista = q.getResultList();
-		return lista;
+		return q.getResultList();
 	}
 
 }

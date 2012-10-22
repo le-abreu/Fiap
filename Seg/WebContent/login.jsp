@@ -6,15 +6,16 @@
 			<h:panelGrid columns="2">
 				<rich:panel header=":: Area de Acesso ::" style="aling:center;">
 					<h:form>
-						<rich:messages style="color:red" />
 						<h:panelGrid columns="2">
+							<h:outputText value="#{handlerLogin.result}" style="color:red" />
+							<rich:messages style="color:red" />
 							<h:panelGrid columns="2">
-								<h:outputLabel value="Usuario:"/>
-								<h:inputText id="usuario" value="#{handlerLogin.funcionario.usuario}"/>
-								<h:outputLabel value="Chave Acesso:"/>
-								<h:inputText id="chaveAcessoa" value="#{handlerLogin.funcionario.senha}"/>
+								<h:outputLabel value="Login:"/>
+								<h:inputText id="login" value="#{handlerLogin.funcionario.usuario}"/>
+								<h:outputLabel value="Senha:"/>
+								<h:inputSecret id="senha" value="#{handlerLogin.funcionario.senha}"/>
 							</h:panelGrid>							
-								<a4j:commandButton image="img/imagem_cadeado.jpg" action="#{handlerLogin.login}" />
+							<a4j:commandButton image="img/imagem_cadeado.jpg" action="#{handlerLogin.login}" />
 						</h:panelGrid>
 					</h:form>
 				</rich:panel>

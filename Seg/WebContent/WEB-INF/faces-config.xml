@@ -16,18 +16,20 @@
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	
+	<!-- ADMINISTRADOR -->
 	<navigation-rule>
-		<display-name>formFuncionario</display-name>
-		<from-view-id>/formFuncionario.jsp</from-view-id>
+		<display-name>administradorFuncionario</display-name>
+		<from-view-id>/ADMINISTRADOR/formFuncionario.jsp</from-view-id>
 		<navigation-case>
 			<from-outcome>sucesso</from-outcome>
-			<to-view-id>/formFuncionario.jsp</to-view-id>
+			<to-view-id>/ADMINISTRADOR/formFuncionario.jsp</to-view-id>
 		</navigation-case>
 		<navigation-case>
-			<from-outcome>arquivo</from-outcome>
-			<to-view-id>/uploadArquivo.jsp</to-view-id>
+			<from-outcome>login</from-outcome>
+			<to-view-id>/login.jsp</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+
 
 	<navigation-rule>
 		<from-view-id>/uploadArquivo.jsp</from-view-id>
@@ -39,36 +41,155 @@
 			<from-outcome>sucesso</from-outcome>
 			<to-view-id>/uploadArquivo.jsp</to-view-id>
 		</navigation-case>
-	</navigation-rule>
-	
-	<navigation-rule>
-		<display-name>login</display-name>
-		<from-view-id>/login.jsp</from-view-id>
 		<navigation-case>
-			<from-outcome>sucesso</from-outcome>
-			<to-view-id>/formFuncionario.jsp</to-view-id>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>falha</from-outcome>
+			<from-outcome>login</from-outcome>
 			<to-view-id>/login.jsp</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
+	<!-- FUNCIONARIO -->
 	<navigation-rule>
-		<display-name>formPromoverFuncionario</display-name>
-		<from-view-id>/formPromoverFuncionario.jsp</from-view-id>
-		<navigation-case>
-			<from-outcome>arquivo</from-outcome>
-			<to-view-id>/uploadArquivo.jsp</to-view-id>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>funcionario</from-outcome>
-			<to-view-id>/formFuncionario.jsp</to-view-id>
-		</navigation-case>
+		<display-name>funcionario</display-name>
+		<from-view-id>/FUNCIONARIO/formFuncionario.jsp</from-view-id>
 		<navigation-case>
 			<from-outcome>sucesso</from-outcome>
-			<to-view-id>/formPromoverFuncionario.jsp</to-view-id>
+			<to-view-id>/FUNCIONARIO/formFuncionario.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>arquivo</from-outcome>
+			<to-view-id>/FUNCIONARIO/uploadArquivo.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>promoverFuncionario</from-outcome>
+			<to-view-id>/FUNCIONARIO/formPromoverFuncionario.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>login</from-outcome>
+			<to-view-id>/login.jsp</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 
+	<navigation-rule>
+		<display-name>uploadArquivo</display-name>
+		<from-view-id>/FUNCIONARIO/uploadArquivo.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>sucesso</from-outcome>
+			<to-view-id>/FUNCIONARIO/uploadArquivo.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>funcionario</from-outcome>
+			<to-view-id>/FUNCIONARIO/formFuncionario.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>promoverFuncionario</from-outcome>
+			<to-view-id>/FUNCIONARIO/formPromoverFuncionario.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>login</from-outcome>
+			<to-view-id>/login.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<display-name>promoverFuncionario</display-name>
+		<from-view-id>/FUNCIONARIO/formPromoverFuncionario.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>sucesso</from-outcome>
+			<to-view-id>/FUNCIONARIO/formPromoverFuncionario.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>arquivo</from-outcome>
+			<to-view-id>/FUNCIONARIO/uploadArquivo.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>funcionario</from-outcome>
+			<to-view-id>/FUNCIONARIO/formFuncionario.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>login</from-outcome>
+			<to-view-id>/login.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- GERENTE -->
+	<navigation-rule>
+		<display-name>gerenteFuncionario</display-name>
+		<from-view-id>/GERENTE/formFuncionario.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>sucesso</from-outcome>
+			<to-view-id>/GERENTE/formFuncionario.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>arquivo</from-outcome>
+			<to-view-id>/GERENTE/uploadArquivo.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>promoverFuncionario</from-outcome>
+			<to-view-id>/GERENTE/formPromoverFuncionario.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>login</from-outcome>
+			<to-view-id>/login.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<display-name>uploadArquivo</display-name>
+		<from-view-id>/GERENTE/uploadArquivo.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>sucesso</from-outcome>
+			<to-view-id>/GERENTE/uploadArquivo.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>funcionario</from-outcome>
+			<to-view-id>/GERENTE/formFuncionario.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>promoverFuncionario</from-outcome>
+			<to-view-id>/GERENTE/formPromoverFuncionario.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>login</from-outcome>
+			<to-view-id>/login.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<display-name>promoverFuncionario</display-name>
+		<from-view-id>/GERENTE/formPromoverFuncionario.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>sucesso</from-outcome>
+			<to-view-id>/GERENTE/formPromoverFuncionario.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>arquivo</from-outcome>
+			<to-view-id>/GERENTE/uploadArquivo.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>funcionario</from-outcome>
+			<to-view-id>/GERENTE/formFuncionario.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>login</from-outcome>
+			<to-view-id>/login.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<display-name>login</display-name>
+		<from-view-id>/login.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>funcionario</from-outcome>
+			<to-view-id>/FUNCIONARIO/formFuncionario.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>gerenteFuncionario</from-outcome>
+			<to-view-id>/GERENTE/formFuncionario.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>administradorFuncionario</from-outcome>
+			<to-view-id>/ADMINISTRADOR/formFuncionario.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
 </faces-config>

@@ -13,4 +13,3 @@
 	<body>
 		<div align="center">
 			<img align="top" alt="" src="img/logo_A&L_03.jpg">
-
