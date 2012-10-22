@@ -4,6 +4,13 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+
 import org.richfaces.event.UploadEvent;
 import org.richfaces.model.UploadItem;
 
@@ -14,8 +21,8 @@ import br.com.fiap.dao.ArquivoDAO;
 import br.com.fiap.dao.FuncionarioDAO;
 import br.com.fiap.util.ControllerArquivo;
 
-public class HandlerLogin {
-
+public class HandlerLogin implements Filter {
+ 
 	private Funcionario funcionario = new Funcionario();
 	private FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 	private Arquivo arquivo = new Arquivo();
@@ -58,20 +65,20 @@ public class HandlerLogin {
 
 		if(funcionario.getCargo().equals(CargoEnum.ADMINISTRADOR)){
 			pathMenu = "ADMINISTRADOR/menu.jsp";
-			return "administradorFuncionario";
+//			return "administradorFuncionario";
 		}
 		
 		if(funcionario.getCargo().equals(CargoEnum.GERENTE)){
 			pathMenu = "GERENTE/menu.jsp";
-			return "gerenteFuncionario";
+//			return "gerenteFuncionario";
 		}
 	
 		if(funcionario.getCargo().equals(CargoEnum.FUNCIONARIO)){
 			pathMenu = "FUNCIONARIO/menu.jsp";
-			return "funcionario";
+//			return "funcionario";
 		}
 		
-		return "falha";
+		return "sucesso";
 	}
 
 	public String sair() {
@@ -99,4 +106,24 @@ public class HandlerLogin {
 	public List<Arquivo> getArquivos() {
 		return arquivoDAO.lista();
 	}
+	
+	
+   @Override
+    public void destroy() {
+    }
+ 
+    @Override
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException,
+            ServletException {
+ 
+//        String userName = SecurityAssociation.getPrincipal().getName();
+// 
+//        System.out.println("Yeeey! Get me here and find me in the database: " + userName);
+ 
+        filterChain.doFilter(servletRequest, servletResponse);
+    }
+ 
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+    }
 }

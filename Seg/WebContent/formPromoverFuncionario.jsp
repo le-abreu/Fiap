@@ -1,4 +1,4 @@
-<%@include file="../header.jsp"%>
+<%@include file="header.jsp"%>
 <f:view>
 	<rich:panel style="width: 1050px; height: 320px;" styleClass="pic">
 		<h:panelGrid columns="1">
@@ -33,4 +33,4 @@
 	</rich:panel>
 	<rich:panel header=":: Copyright 2011 - Todos os direitos reservado a LJR SystemWeb ::" style="width: 1050px; height: 30px;"/>
 </f:view>
-<%@include file="../footer.jsp"%>
+<%@include file="footer.jsp"%>

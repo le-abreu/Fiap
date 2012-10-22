@@ -1,49 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13494482496270" configfile="/Seg/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="administradorFuncionario" x="554" y="178" id="pf13497300236070" referenceLink="//@navigationRule.8/@navigationCase.2/@toViewId|" outlinks="pf13509076307793" inlinks="pf13509076307793 pf135091328085374" path="/ADMINISTRADOR/formFuncionario.jsp"/>
-  <nodes xsi:type="pageflow:PFPage" name="uploadArquivo" x="122" y="178" id="pf13509076552966" referenceLink="//@navigationRule.1/@navigationCase.1/@toViewId|" outlinks="pf13509076552967 pf13509076552968" inlinks="pf13509076552968" path="/uploadArquivo.jsp"/>
-  <nodes xsi:type="pageflow:PFPage" name="formFuncionario" x="338" y="178" id="pf135090765529610" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf13509076552967" path="/formFuncionario.jsp"/>
-  <nodes xsi:type="pageflow:PFPage" name="login" x="338" y="562" id="pf135090765529613" referenceLink="//@navigationRule.8/@fromViewId|" outlinks="pf135090820986664 pf135090820986665 pf135091328085374" inlinks="pf135091328085375" path="/login.jsp"/>
-  <nodes xsi:type="pageflow:PFPage" name="funcionario" x="554" y="1148" id="pf135090776429520" referenceLink="//@navigationRule.8/@navigationCase.0/@toViewId|" outlinks="pf135090805405942 pf135090810184454 pf135090810184455" inlinks="pf135090805405942 pf135090813051858 pf135090813051859 pf135090820986665" path="/FUNCIONARIO/formFuncionario.jsp"/>
-  <nodes xsi:type="pageflow:PFPage" name="uploadArquivo" x="986" y="562" id="pf135090777775023" referenceLink="//@navigationRule.7/@navigationCase.1/@toViewId|" outlinks="pf135090805405945 pf135090805405946 pf135091328085376" inlinks="pf135090805405945 pf135090805405948 pf135091328085377" path="/GERENTE/uploadArquivo.jsp"/>
-  <nodes xsi:type="pageflow:PFPage" name="promoverFuncionario" x="770" y="360" id="pf135090783306626" referenceLink="//@navigationRule.7/@fromViewId|" outlinks="pf135090805405949 pf135090805405948 pf135091328085378" inlinks="pf135090805405946 pf135090805405949 pf135091328085379" path="/GERENTE/formPromoverFuncionario.jsp"/>
-  <nodes xsi:type="pageflow:PFPage" name="uploadArquivo" x="338" y="946" id="pf135090810184456" referenceLink="//@navigationRule.4/@navigationCase.1/@toViewId|" outlinks="pf135090813051960 pf135090813051858 pf135090813051961" inlinks="pf135090810184454 pf135090813051960 pf135090813051962" path="/FUNCIONARIO/uploadArquivo.jsp"/>
-  <nodes xsi:type="pageflow:PFPage" name="promoverFuncionario" x="122" y="1148" id="pf135090810184457" referenceLink="//@navigationRule.4/@fromViewId|" outlinks="pf135090813051963 pf135090813051962 pf135090813051859" inlinks="pf135090810184455 pf135090813051961 pf135090813051963" path="/FUNCIONARIO/formPromoverFuncionario.jsp"/>
-  <nodes xsi:type="pageflow:PFPage" name="gerenteFuncionario" x="554" y="562" id="pf135090820986666" referenceLink="//@navigationRule.8/@navigationCase.1/@toViewId|" outlinks="pf135091328085480 pf135091328085377 pf135091328085379 pf135091328085375" inlinks="pf135090820986664 pf135091328085480 pf135091328085376 pf135091328085378" path="/GERENTE/formFuncionario.jsp"/>
-  <nodes xsi:type="pageflow:PFPage" name="gerenteFuncionario" x="122" y="1532" id="pf135090849208472" referenceLink="//@navigationRule.7/@navigationCase.2/@toViewId|" path="/GERENTE/formFuncionario.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="administradorFuncionario" x="122" y="178" id="pf13497300236070" referenceLink="//@navigationRule.8/@navigationCase.2/@toViewId|" path="/ADMINISTRADOR/formFuncionario.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="arquivo" x="338" y="1068" id="pf13509076552966" referenceLink="//@navigationRule.2/@navigationCase.1/@toViewId|" outlinks="pf13509076552967 pf13509076552968 pf135092306755782 pf13509242885290" inlinks="pf13509076552968 pf13509242885291 pf13509242885292" path="/uploadArquivo.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="funcionario" x="770" y="1271" id="pf135090765529610" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" outlinks="pf13509242885293 pf13509242885291 pf13509242885294 pf13509242885295" inlinks="pf13509076552967 pf13509242885293 pf13509242885296 pf13509242885297" path="/formFuncionario.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="login" x="554" y="1271" id="pf135090765529613" referenceLink="//@navigationRule.3/@navigationCase.1/@toViewId|" outlinks="pf13509242885297 pf13509242885298" inlinks="pf135092306755782 pf135092306755787 pf13509242885295 pf13509242885298" path="/login.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="funcionario" x="122" y="563" id="pf135090776429520" referenceLink="//@navigationRule.8/@navigationCase.0/@toViewId|" path="/FUNCIONARIO/formFuncionario.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="uploadArquivo" x="122" y="948" id="pf135090777775023" referenceLink="//@navigationRule.7/@navigationCase.1/@toViewId|" path="/uploadArquivo.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="promoverFuncionario" x="122" y="1334" id="pf135090783306626" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf135090805405949 pf135092306755787 pf13509242885292 pf13509242885296" inlinks="pf135090805405949 pf13509242885294 pf13509242885290" path="/formPromoverFuncionario.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="uploadArquivo" x="122" y="1722" id="pf135090810184456" referenceLink="//@navigationRule.4/@navigationCase.1/@toViewId|" path="/FUNCIONARIO/uploadArquivo.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="promoverFuncionario" x="122" y="2109" id="pf135090810184457" referenceLink="//@navigationRule.4/@fromViewId|" path="/FUNCIONARIO/formPromoverFuncionario.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="funcionario" x="122" y="2495" id="pf135090820986666" referenceLink="//@navigationRule.8/@navigationCase.1/@toViewId|" path="/formFuncionario.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="gerenteFuncionario" x="122" y="2880" id="pf135090849208472" referenceLink="//@navigationRule.7/@navigationCase.2/@toViewId|" path="/GERENTE/formFuncionario.jsp"/>
   <links id="pf13509076552967" target="pf135090765529610" source="pf13509076552966" outcome="funcionario"/>
-  <links id="pf135090805405946" target="pf135090783306626" source="pf135090777775023" outcome="promoverFuncionario"/>
-  <links id="pf135090805405948" target="pf135090777775023" source="pf135090783306626" outcome="arquivo"/>
-  <links id="pf135090810184454" target="pf135090810184456" source="pf135090776429520" outcome="arquivo"/>
-  <links id="pf135090810184455" target="pf135090810184457" source="pf135090776429520" outcome="promoverFuncionario"/>
-  <links id="pf135090813051858" target="pf135090776429520" source="pf135090810184456" outcome="funcionario"/>
-  <links id="pf135090813051961" target="pf135090810184457" source="pf135090810184456" outcome="promoverFuncionario"/>
-  <links id="pf135090813051962" target="pf135090810184456" source="pf135090810184457" outcome="arquivo"/>
-  <links id="pf135090813051859" target="pf135090776429520" source="pf135090810184457" outcome="funcionario"/>
-  <links id="pf135090820986664" target="pf135090820986666" source="pf135090765529613" outcome="gerenteFuncionario"/>
-  <links id="pf135090820986665" target="pf135090776429520" source="pf135090765529613" outcome="funcionario"/>
-  <links id="pf135091328085377" target="pf135090777775023" source="pf135090820986666" outcome="arquivo"/>
-  <links id="pf135091328085379" target="pf135090783306626" source="pf135090820986666" outcome="promoverFuncionario"/>
-  <links id="pf135091328085375" target="pf135090765529613" source="pf135090820986666" outcome="login"/>
-  <links id="pf135091328085376" target="pf135090820986666" source="pf135090777775023" outcome="funcionario"/>
-  <links id="pf135091328085378" target="pf135090820986666" source="pf135090783306626" outcome="funcionario"/>
-  <links id="pf135091328085374" target="pf13497300236070" source="pf135090765529613" outcome="administradorFuncionario"/>
-  <links id="pf13509076307793" target="pf13497300236070" source="pf13497300236070" outcome="sucesso">
-    <bendPoints d1Height="-36" d2Height="-36"/>
-    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
-    <bendPoints d1Width="-64" d2Width="-64"/>
-  </links>
+  <links id="pf135092306755782" target="pf135090765529613" source="pf13509076552966" outcome="login"/>
+  <links id="pf135092306755787" target="pf135090765529613" source="pf135090783306626" outcome="login"/>
+  <links id="pf13509242885291" target="pf13509076552966" source="pf135090765529610" outcome="arquivo"/>
+  <links id="pf13509242885294" target="pf135090783306626" source="pf135090765529610" outcome="promoverFuncionario"/>
+  <links id="pf13509242885295" target="pf135090765529613" source="pf135090765529610" outcome="login"/>
+  <links id="pf13509242885290" target="pf135090783306626" source="pf13509076552966" outcome="promoverFuncionario"/>
+  <links id="pf13509242885292" target="pf13509076552966" source="pf135090783306626" outcome="arquivo"/>
+  <links id="pf13509242885296" target="pf135090765529610" source="pf135090783306626" outcome="funcionario"/>
+  <links id="pf13509242885297" target="pf135090765529610" source="pf135090765529613" outcome="sucesso"/>
   <links id="pf13509076552968" target="pf13509076552966" source="pf13509076552966" outcome="sucesso">
-    <bendPoints d1Height="-36" d2Height="-36"/>
-    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
-    <bendPoints d1Width="-64" d2Width="-64"/>
-  </links>
-  <links id="pf135090805405942" target="pf135090776429520" source="pf135090776429520" outcome="sucesso">
-    <bendPoints d1Height="-36" d2Height="-36"/>
-    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
-    <bendPoints d1Width="-64" d2Width="-64"/>
-  </links>
-  <links id="pf135090805405945" target="pf135090777775023" source="pf135090777775023" outcome="sucesso">
     <bendPoints d1Height="-36" d2Height="-36"/>
     <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
     <bendPoints d1Width="-64" d2Width="-64"/>
@@ -53,17 +31,12 @@
     <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
     <bendPoints d1Width="-64" d2Width="-64"/>
   </links>
-  <links id="pf135090813051960" target="pf135090810184456" source="pf135090810184456" outcome="sucesso">
+  <links id="pf13509242885293" target="pf135090765529610" source="pf135090765529610" outcome="sucesso">
     <bendPoints d1Height="-36" d2Height="-36"/>
     <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
     <bendPoints d1Width="-64" d2Width="-64"/>
   </links>
-  <links id="pf135090813051963" target="pf135090810184457" source="pf135090810184457" outcome="sucesso">
-    <bendPoints d1Height="-36" d2Height="-36"/>
-    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
-    <bendPoints d1Width="-64" d2Width="-64"/>
-  </links>
-  <links id="pf135091328085480" target="pf135090820986666" source="pf135090820986666" outcome="sucesso">
+  <links id="pf13509242885298" target="pf135090765529613" source="pf135090765529613" outcome="falha">
     <bendPoints d1Height="-36" d2Height="-36"/>
     <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
     <bendPoints d1Width="-64" d2Width="-64"/>
