@@ -4,13 +4,6 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.List;
 
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-
 import org.richfaces.event.UploadEvent;
 import org.richfaces.model.UploadItem;
 
@@ -21,7 +14,7 @@ import br.com.fiap.dao.ArquivoDAO;
 import br.com.fiap.dao.FuncionarioDAO;
 import br.com.fiap.util.ControllerArquivo;
 
-public class HandlerLogin implements Filter {
+public class HandlerLogin{
  
 	private Funcionario funcionario = new Funcionario();
 	private FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
@@ -55,6 +48,7 @@ public class HandlerLogin implements Filter {
 	}
 
 	public String login() {
+		
 		result = "";
 		funcionario = funcionarioDAO.getLoginFuncionario(funcionario.getUsuario(), funcionario.getSenha());
 		
@@ -108,22 +102,4 @@ public class HandlerLogin implements Filter {
 	}
 	
 	
-   @Override
-    public void destroy() {
-    }
- 
-    @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException,
-            ServletException {
- 
-//        String userName = SecurityAssociation.getPrincipal().getName();
-// 
-//        System.out.println("Yeeey! Get me here and find me in the database: " + userName);
- 
-        filterChain.doFilter(servletRequest, servletResponse);
-    }
- 
-    @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-    }
 }

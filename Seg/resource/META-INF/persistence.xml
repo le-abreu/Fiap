@@ -3,7 +3,7 @@
 	<persistence-unit name="SegJPA">
 	
    		<provider>org.hibernate.ejb.HibernatePersistence</provider> 
-<!--  		<jta-data-source>java:/SegJPA</jta-data-source> -->
+ 		<non-jta-data-source>java:/SegJPA_ro</non-jta-data-source>
  		<class>br.com.fiap.bean.Funcionario</class>
  		<class>br.com.fiap.bean.Arquivo</class>
  		

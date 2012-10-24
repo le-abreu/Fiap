@@ -43,22 +43,6 @@
 		<dispatcher>FORWARD</dispatcher>
 		<dispatcher>INCLUDE</dispatcher>
 	</filter-mapping>
-	<!-- <security-role> <description>Papel Gerente</description> <role-name>gerente</role-name> 
-		</security-role> <security-role> <description>Papel Funcionario</description> 
-		<role-name>funcionario</role-name> </security-role> <security-role> <description>Papel 
-		Administrador</description> <role-name>administrador</role-name> </security-role> 
-		<security-constraint> <web-resource-collection> <web-resource-name>Gerente</web-resource-name> 
-		<description>Seguranca da Pagina Cadastrar</description> <url-pattern>/GERENTE</url-pattern> 
-		<http-method>GET</http-method> <http-method>POST</http-method> </web-resource-collection> 
-		<auth-constraint> <description>Permissoes para Gerente</description> <role-name>gerente</role-name> 
-		</auth-constraint> </security-constraint> <security-constraint> <web-resource-collection> 
-		<web-resource-name>Administrador</web-resource-name> <description>Seguranca 
-		da Pagina Cadastrar</description> <url-pattern>/GERENTE</url-pattern> <http-method>GET</http-method> 
-		<http-method>POST</http-method> </web-resource-collection> <auth-constraint> 
-		<description>Permissoes para Gerente</description> <role-name>gerente</role-name> 
-		</auth-constraint> </security-constraint> -->
-
-	<!-- Protected Areas -->
 	<security-constraint>
 		<web-resource-collection>
 			<web-resource-name>Cadastrar Funcionario</web-resource-name>
@@ -116,7 +100,7 @@
     <!-- Filter to get the user name and work with it -->
     <filter>
         <filter-name>LoginFilter</filter-name>
-        <filter-class>br.com.fiap.handler.HandlerLogin</filter-class>
+        <filter-class>br.com.fiap.filter.FilterLogin</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>LoginFilter</filter-name>
